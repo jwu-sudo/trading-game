@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Game</title>
+    <link rel="stylesheet" href="charts.css" media="screen" type="text/css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+</head>
+
+<body>
+<div id="start" align="center">
+    Rule: upload demo.csv file, set targets& date, click ready, then click go to srart the game.
+    <a id="download" style="margin-left:50px" href="./data/demo.csv" download="demo.csv">下载文件</a>
+    <input id="files-list" type="file" >
+    <span id="textInputSpan" style="margin-left:0px">
+        Trading targets:
+        <input id="textInput_targets" maxlength="10" type="text" width="100" />
+    </span>
+    <br>
+    <div id="dates">
+        Select date:<button>NAN</button>
+    </div>
+    <button style="margin-right:20px" onclick="ready()">Ready?</button>
+    <button style="margin-right:20px" onclick="startGame()">GO!</button>
+    <span style="margin-right:20px" id="count">Home state</span>
+    <button style="margin-right:20px" id="btn" onclick="end()">结束游戏</button>
+</div>
+<div id="chart">
+    <div id="chart1"></div>
+    <div id="chart2"></div>
+</div>
+
+<div id="quote" align="center">
+    <table id="quote_table">
+        <tr><td>卖10</td><td>NA</td><td>NA</td></tr>
+        <tr><td>卖9</td><td>NA</td><td >NA</td></tr>
+        <tr><td>卖8</td><td>NA</td><td>NA</td></tr>
+        <tr><td>卖7</td><td>NA</td><td>NA</td></tr>
+        <tr><td>卖6</td><td>NA</td><td>NA</td></tr>
+        <tr><td>卖5</td><td>NA</td><td>NA</td></tr>
+        <tr><td>卖4</td><td>NA</td><td>NA</td></tr>
+        <tr><td>卖3</td><td>NA</td><td>NA</td></tr>
+        <tr><td>卖2</td><td>NA</td><td>NA</td></tr>
+        <tr><td>卖1</td><td>NA</td><td>NA</td></tr>
+        <tr><td>买1</td><td>NA</td><td>NA</td></tr>
+        <tr><td>买2</td><td>NA</td><td>NA</td></tr>
+        <tr><td>买3</td><td>NA</td><td>NA</td></tr>
+        <tr><td>买4</td><td>NA</td><td>NA</td></tr>
+        <tr><td>买5</td><td>NA</td><td>NA</td></tr>
+        <tr><td>买6</td><td>NA</td><td>NA</td></tr>
+        <tr><td>买7</td><td>NA</td><td>NA</td></tr>
+        <tr><td>买8</td><td>NA</td><td>NA</td></tr>
+        <tr><td>买9</td><td>NA</td><td>NA</td></tr>
+        <tr><td>买10</td><td>NA</td><td>NA</td></tr>
+    </table>
+</div>
+<br>
+<div id="process" >
+    <table id="process_table" align="center" width="100%">
+        <tr><td width="25%">CurTime</td><td>NA</td><td width="25%">Price</td><td>NA</td><td width="25%">Order</td><td>NA</td></tr>
+        <tr><td width="25%">Targets</td><td>NA</td><td width="25%">MVWAP</td><td >NA</td><td width="25%">Deal</td><td >NA</td></tr>
+    </table>
+</div>
+<div id="result" >
+    <table id="result_table" align="center" width="100%">
+        <tr><td width="25%">FinishingTime</td><td>NA</td><td width="25%">OrderNum</td><td>NA</td><td width="25%">VWAP</td><td>NA</td></tr>
+        <tr><td width="25%">Total</td><td>NA</td><td width="25%">Finished</td><td >NA</td><td width="25%">Ratio</td><td >NA</td></tr>
+    </table>
+</div>
+<div id="command" >
+    <span id="">
+    <button onclick="placeOrder()">BUYNUM</button>
+    <button onclick="placeOrderNum(100)">BUY100</button>
+    <button onclick="placeOrderNum(200)">BUY200</button>
+    <button onclick="placeOrderNum(300)">BUY300</button>
+    <button onclick="placeOrderNum(400)">BUY400</button>
+    <button onclick="placeOrderNum(500)">BUY500</button>
+</span>
+</div>
+<script src="charts.js"></script>
+
+</body>
+
+</html>
